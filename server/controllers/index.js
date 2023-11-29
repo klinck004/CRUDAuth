@@ -78,7 +78,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
       res.render('auth/register',
       {
         title:'Register',
-        message: 'This is an authentication message!', /* req.flash('registerMessage'), */
+        message: req.flash('registerMessage'),
         displayName: req.user ? req.user.displayName: ''
       })
     }
