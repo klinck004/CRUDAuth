@@ -4,7 +4,7 @@
   "description": "CRUD app for INFR3120U Assignment 3",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/server.js"
   },
   "dependencies": {
     "connect-flash": "^0.1.1",
