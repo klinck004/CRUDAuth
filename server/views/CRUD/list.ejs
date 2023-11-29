@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Bootstrap 5.3.2 CDN -->
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title><%= title %></title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <!--Header--><%- include('../partials/header.ejs') %>
+  <main class="container">
+    <!--Page container wrapper-->
+    <div class="row m-3"></div> <!-- Spacing -->
+    <!--Assignment list table-->
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered table-hover table-striped">
+          <thead>
+            <!--Table header-->
+            <tr class="d-flex">
+              <th class="text-center col-1">Class</th>
+              <th class="text-center col-3">Name</th>
+              <th class="text-center col-1">Due Date</th>
+              <th class="text-center col-3">Notes</th>
+              <th class="text-center col-1">Total Points</th>
+              <th class="text-center col-1">Weight</th>
+              <th class="text-center col-2">Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- For loop to create the appropriate amount of rows corresponding to the total number of entries -->
+            <% for(let count=0;count<AssignList.length;count++) { %>
+            <tr class="d-flex">
+              <td class="text-center col-1" onClick="location.href='/list/show/<%=AssignList[count].id%>'"><%= AssignList[count].class %>
+              </td>
+              <td class="text-center col-3" onClick="location.href='/list/show/<%=AssignList[count].id%>'"><%= AssignList[count].name %>
+              </td>
+              <td class="text-center col-1" onClick="location.href='/list/show/<%=AssignList[count].id%>'"><%= AssignList[count].due %>
+              </td>
+              <td class="text-center col-3" onClick="location.href='/list/show/<%=AssignList[count].id%>'"><%= AssignList[count].notes %>
+              </td>
+              <td class="text-center col-1" onClick="location.href='/list/show/<%=AssignList[count].id%>'"><%= AssignList[count].mark %>
+              </td>
+              <td class="text-center col-1" onClick="location.href='/list/show/<%=AssignList[count].id%>'"><%= AssignList[count].weight %>
+              </td>
+              <td class="text-center col-2">
+                <a href="/list/edit/<%= AssignList[count]._id %>" class="btn btn-warning btn-sm"> Edit
+                </a>
+                <a href="/list/delete/<%= AssignList[count]._id %>" class="btn btn-danger btn-sm"> Delete
+                </a>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+        <script src="../javascripts/script.js"></script> <!-- For this stupid button that didn't want to work-->
+      </div>
+      <div class="row">
+        <a href="/list/add" class="btn btn-success">Add new</a> <!-- Add new assignment button -->
+        <p class="form-text">Tip: You can click on an assignment to view the full assignment!</p>
+      </div>
+  </main>
+  <!--Footer--><%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

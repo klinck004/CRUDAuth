@@ -1,0 +1,1 @@
+module.exports = {"URI":"mongodb+srv://klinck004:DGE4LaS4kn1A2yAu@cluster0.uxzu74j.mongodb.net/assignmentList"}

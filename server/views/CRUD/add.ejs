@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Bootstrap 5.3.2 CDN -->
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title><%= title %></title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <!--Header--><%- include('../partials/header.ejs') %>
+  <main class="container">
+    <!--Page container wrapper-->
+    <div class="d-flex flex-column justify-content-center">
+      <div class="row m-3"></div> <!-- Spacing -->
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <form class="form container d-flex flex-column" method="post">
+            <a href="/list" class="btn btn-dark btn-sm col-sm-1"><i class="fa-solid fa-x"></i></a> <!-- Cancel / return to previous page -->
+            <!-- Add item form -->
+            <h3>Add New Item</h3>
+            <div class="mb-1">
+              <!--Class name input-->
+              <label for="className" class="form-label">Class:</label>
+              <input type="text" class="form-control" id="className" placeholder="ABCD1234U" name="class" maxlength="9" required>
+              <div id="classHelp" class="form-text">Must be in the form of ABCD1234U</div>
+            </div>
+            <div class="mb-1">
+              <!--Assignment name input-->
+              <label for="assignName" class="form-label">Assignment name:</label>
+              <input type="text" class="form-control" id="assignName" placeholder="Enter the assignment name" name="name" required>
+            </div>
+            <div class="mb-1">
+              <!--Due date input-->
+              <label for="dueDate" class="form-label">Due date:</label><br>
+              <input type="date" class="form-control" id="dueDate" placeholder="Due date" name="due" required>
+            </div>
+            <div class="mb-1">
+              <!--Total points input-->
+              <label for="assignMarks" class="form-label">Out of:</label><br>
+              <input type="string" class="form-control" id="assignMarks" placeholder="Total Marks" name="mark" value="N/A">
+              <div id="classHelp" class="form-text">Optional</div>
+            </div>
+            <div class="mb-1">
+              <!--Assignment weight input-->
+              <label for="assignWeight" class="form-label">Weight:</label><br>
+              <input type="string" class="form-control" id="assignWeight" placeholder="Weight" name="weight" value="N/A">
+              <div id="classHelp" class="form-text">Optional</div>
+            </div>
+            <div class="mb-1">
+              <!--Note input-->
+              <label for="assignNotes" class="form-label">Notes:</label><br>
+              <textarea name="notes" title="Notes" id="assignNotes" class="textarea form-control"></textarea>
+            </div>
+            <div class="d-inline-flex justify-content-center">
+              <!--Submit and Cancel-->
+              <button class="btn btn-outline-success" type="submit">Submit</button>
+              <a href="/list" class="btn btn-outline-dark">Cancel</a>
+
+            </div>
+          </form>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </main>
+  <!--Footer--><%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

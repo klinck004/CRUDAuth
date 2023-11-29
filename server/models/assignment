@@ -1,0 +1,16 @@
+let mongoose = require('mongoose');
+
+// create a model class
+let schema = new mongoose.Schema({
+    name: { type: String, },
+    class: { type: String, },
+    due: { type: String, },
+    notes: { type: String, },
+    mark: { type: String, },
+    weight: { type: String, },
+},
+    {
+        collection: "assignment"
+    });
+
+module.exports = mongoose.model('assignment', schema);

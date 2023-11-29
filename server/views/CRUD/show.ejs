@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Bootstrap 5.3.2 CDN -->
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title><%=assignToShow.name%> - <%=assignToShow.class%></title> <!-- Display assignment name and class in title -->
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <!--Header--><%- include('../partials/header.ejs') %>
+  <main class="container">
+    <!--Page container wrapper-->
+    <div class="row m-3"></div> <!-- Spacing -->
+    <div class="row">
+      <div class="col-sm-12">
+        <form class="form container d-flex flex-column" method="post">
+          <a href="/list" class="btn btn-dark btn-sm col-sm-1"><i class="fa-solid fa-arrow-left"></i></a> <!-- Return to previous page -->
+          <div class="row collapse show" id="edit">
+            <!-- Assignment name -->
+            <div class="col">
+              <h3><i class="fa-solid fa-font"></i> <%=assignToShow.name%></h3>
+            </div>
+          </div>
+
+          <div class="row collapse" id="edit">
+            <!-- Edit assignment name -->
+            <div class="mb-1">
+              <!--Assignment name input-->
+              <label for="assignName" class="form-label">
+                <h5><i class="fa-solid fa-font"></i> New name:</h5>
+              </label>
+              <input type="text" class="form-control" id="assignName" placeholder="<%=assignToShow.name%>" name="name" value="<%=assignToShow.name%>" required>
+            </div>
+          </div>
+
+          <div class="row collapse show" id="edit">
+            <!-- Class name -->
+            <div class="col">
+              <h4><i class="fa-solid fa-school"></i> <%=assignToShow.class%></h4>
+            </div>
+          </div>
+
+          <div class="row collapse" id="edit">
+            <!-- Edit class name -->
+            <div class="mb-1">
+              <!--Class name input-->
+              <label for="className" class="form-label">
+                <h6><i class="fa-solid fa-school"></i> Class:</h6>
+              </label>
+              <input type="text" class="form-control" id="className" placeholder="<%=assignToShow.class%>" name="class" maxlength="9" value="<%=assignToShow.class%>" required>
+            </div>
+          </div>
+
+          <div class="row collapse show" id="edit">
+            <!-- Due date -->
+            <div class="col-1">
+              <p><i class="fa-solid fa-calendar-days"></i> Due date:</p>
+            </div>
+            <div class="col-11"><%=assignToShow.due%></div>
+          </div>
+
+          <div class="row collapse" id="edit">
+            <!-- Edit due date -->
+            <div class="mb-1">
+              <!--Due date input-->
+              <label for="dueDate" class="form-label">
+                <h6><i class="fa-solid fa-calendar-days"></i>Due date:</h6>
+              </label><br>
+              <input type="date" class="form-control" id="dueDate" placeholder="<%=assignToShow.due%>" name="due" value="<%=assignToShow.due%>" required>
+            </div>
+          </div>
+
+          <div class="row collapse show" id="edit">
+            <!-- Mark -->
+            <div class="col-1">
+              <p><i class="fa-solid fa-list-ol"></i> Total points:</p>
+            </div>
+            <div class="col-11"><%=assignToShow.mark%></div>
+          </div>
+
+          <div class="row collapse" id="edit">
+            <!-- Edit mark -->
+            <div class="mb-1">
+              <!--Total points input-->
+              <label for="assignMarks" class="form-label">
+                <h6><i class="fa-solid fa-list-ol"></i> Out of:</h6>
+              </label><br>
+              <input type="string" class="form-control" id="assignMarks" placeholder="<%=assignToShow.mark%>" name="mark" value="<%=assignToShow.mark%>">
+            </div>
+          </div>
+
+          <div class="row collapse show" id="edit">
+            <!-- Weight -->
+            <div class="col-1">
+              <p><i class="fa-solid fa-list-ol"></i> Weight: </p>
+            </div>
+            <div class="col-11"><%=assignToShow.weight%></div>
+          </div>
+
+          <div class="row collapse" id="edit">
+            <!-- Edit weight -->
+            <div class="mb-1">
+              <label for="assignWeight" class="form-label">
+                <h6><i class="fa-solid fa-list-ol"></i> Weight:</h6>
+              </label><br>
+              <input type="string" class="form-control" id="assignWeight" placeholder="<%=assignToShow.weight%>" name="weight" value="<%=assignToShow.weight%>">
+            </div>
+          </div>
+
+          <div class="row collapse show" id="edit">
+            <!-- Notes  -->
+            <div class="col-1">
+              <p><i class="fa-solid fa-comment"></i> Notes: </p>
+            </div>
+            <div class="col-11"><%=assignToShow.notes%></div>
+          </div>
+
+          <div class="row collapse" id="edit">
+            <!-- Edit notes and submit -->
+            <div class="mb-1">
+              <!--Note input-->
+              <label for="assignNotes" class="form-label">
+                <h6><i class="fa-solid fa-comment"></i> Notes:</h6>
+              </label><br>
+              <textarea name="notes" title="Notes" id="assignNotes" class="textarea form-control" value="<%=assignToShow.notes%>"></textarea>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#edit">Edit</button>
+            <button class="btn btn-success collapse" id="edit" type="submit">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </main>
+  <!--Footer--><%- include('../partials/footer.ejs') %>
+</body>
+
+
+</body>
+
+</html>
